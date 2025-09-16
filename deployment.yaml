@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: wisecow
-        image: chandru27/wisecow:latest
+        image: chandru27/wisecow:latest   # 👈 change to your Docker Hub repo
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4499
