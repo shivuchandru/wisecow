@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wisecow
+  name: wisecow-service
+  labels:
+    app: wisecow
 spec:
   selector:
     app: wisecow
   ports:
-  - port: 80
-    targetPort: 4499
-    protocol: TCP
-  type: ClusterIP
+    - protocol: TCP
+      port: 80
+      targetPort: 4499
+  type: NodePort   # use LoadBalancer in cloud or ClusterIP + Ingress
+
