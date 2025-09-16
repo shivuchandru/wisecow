@@ -1,20 +1,20 @@
-# Use a small base image with bash and netcat
+# Dockerfile for Wisecow app
 FROM alpine:3.19
 
-# Install bash and netcat (nc)
+# Install bash + netcat (required by wisecow.sh)
 RUN apk add --no-cache bash netcat-openbsd
 
-# Set working directory
 WORKDIR /app
 
-# Copy script into container
+# Copy script
 COPY wisecow.sh .
 
-# Make script executable
+# Make it executable
 RUN chmod +x wisecow.sh
 
-# Expose port (the script uses 4499)
+# Expose the port Wisecow runs on
 EXPOSE 4499
 
 # Run the script
 CMD ["./wisecow.sh"]
+
